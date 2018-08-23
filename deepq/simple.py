@@ -177,7 +177,7 @@ def learn(env,
             if t > learning_starts and t % train_freq == 0:
                 # Minimize the error in Bellman's equation on a batch sampled from replay buffer.
  #               obses_t, actions, rewards, obses_tp1, dones = replay_buffer.sample(batch_size)
-                obses_t, actions, rewards, obses_tp1, dones = replay_buffer.sample(1)
+                obses_t, actions, rewards, obses_tp1, dones = replay_buffer.sample(batch_size)
                 weights, batch_idxes = np.ones_like(rewards), None
                 td_errors = train(obses_t, actions, rewards, obses_tp1, dones, weights)
 

@@ -9,7 +9,7 @@ def comp_Q(q_values,num_actions):
 #        sumtheta = tf.reduce_sum(extheta)
 #        p = extheta/sumtheta
         result = tf.matmul(z,tf.transpose(q_values[i]))
-        Qi.append(result)
+        Qi.append(tf.reduce_sum(result,1))
 #    Qi = tf.reduce_sum(tf.convert_to_tensor(Qi),axis=1)
     return Qi
    
